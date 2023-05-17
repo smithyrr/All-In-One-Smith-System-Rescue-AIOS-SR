@@ -11,6 +11,19 @@ from Tools.Tool_Scripts.malware_scanner_tool import main as run_malware_scanner_
 from Tools.Tool_Scripts.performance_optimization_tool import run_performance_optimization_tool
 from Tools.Tool_Scripts.software_update_checker_linux import check_software_updates as check_software_updates_linux
 from Tools.Tool_Scripts.software_update_checker_windows import check_software_updates as check_software_updates_windows
+from Tools.Tool_Scripts.system_information import main as run_system_information_tool
+from Tools.Tool_Scripts.event_log_viewer_windows import run_event_log_viewer_windows
+from Tools.Tool_Scripts.event_log_viewer_linux import run_event_log_viewer_linux
+from Tools.Tool_Scripts.file_shredder import run_file_shredder
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,23 +1,22 @@
 import sys
-import subprocess
 import os
 
-# Get the absolute path of the current script
-script_dir = os.path.dirname(os.path.abspath(__file__))
-
 # Add the project directory to the module search path
-project_dir = os.path.join(script_dir, "Tools")
+project_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "AIOS-SR Project")
 sys.path.append(project_dir)
 
-# Check the operating system
+# Check the operating system and add the appropriate path
 if sys.platform.startswith("linux"):
     sys.path.append("/mnt/d/AIOS-SR/AIOS-SR Project")
 elif sys.platform.startswith("win"):
     sys.path.append("D:\\AIOS-SR\\AIOS-SR Project")
 
+# Import necessary modules from the project
 from import_tools import *
 
+
 def display_data_recovery_menu():
+    """Display the menu for data recovery options."""
     print("=== Data Recovery ===")
     print("1. TestDisk")
     print("2. PhotoRec")
@@ -26,7 +25,9 @@ def display_data_recovery_menu():
     choice = input("Choose an option: ")
     return choice
 
+
 def run_data_recovery_tool():
+    """Run the data recovery tool based on the user's choice."""
     while True:
         choice = display_data_recovery_menu()
 
@@ -39,7 +40,9 @@ def run_data_recovery_tool():
         else:
             print("Invalid choice. Please try again.")
 
+
 def display_system_monitoring_menu():
+    """Display the menu for system monitoring options."""
     print("\n=== System Monitoring ===")
     print("1. Monitor CPU Usage")
     print("2. Monitor Memory Usage")
@@ -50,7 +53,9 @@ def display_system_monitoring_menu():
     choice = input("Choose an option: ")
     return choice
 
+
 def run_system_monitoring_tool():
+    """Run the system monitoring tool based on the user's choice."""
     while True:
         choice = display_system_monitoring_menu()
 
@@ -68,53 +73,33 @@ def run_system_monitoring_tool():
             print("Invalid choice. Please try again.")
 
 
-def display_system_recovery_menu():
-    print("=== System Recovery ===")
-    print("1. GParted")
-    print("2. System Restore Tool")
-    print("3. Backup and Restore Tool")
-    print("4. Back to Main Menu")
-
-    choice = input("Choose an option: ")
-    return choice
-
-def run_system_recovery_tool():
-    while True:
-        choice = display_system_recovery_menu()
-
-        if choice == "1":
-            run_gparted_tool()  # Call the function to run the GParted tool
-        elif choice == "2":
-            run_system_restore_tool()  # Call the function to run the System Restore tool
-        elif choice == "3":
-            run_backup_restore_tool()  # Call the function to run the Backup and Restore tool
-        elif choice == "4":
-            break
-        else:
-            print("Invalid choice. Please try again.")
+# Define more functions and menus...
 
 def display_menu():
+    """Display the main menu options."""
     print("=== Tools ===")
     print("1. System Recovery")
     print("2. Diagnostics")
-    print("3. Data Recovery")
+    print("3. Data Recovery-offline")
     print("4. System Monitoring")
     print("5. Software Update Checker")
     print("\n=== Utilities ===")
     print("6. Malware Scanner")
     print("7. File Shredder")
     print("8. Event Log Viewer")
-    print("9. Remote Access")
+    print("9. Remote Access-offline")
     print("10. System Information")
-    print("11. Scheduled Tasks")
-    print("12. Log and History Management")
-    print("13. User Authentication")
+    print("11. Scheduled Tasks-offline")
+    print("12. Log and History Management-offline")
+    print("13. User Authentication-offline")
     print("\n14. Exit")
+
     choice = input("Choose an option: ")
     return choice
 
 
 def run_tool(choice):
+    """Run the selected tool based on the user's choice."""
     if choice == "1":
         run_system_recovery_tool()
     elif choice == "2":
@@ -136,10 +121,10 @@ def run_tool(choice):
 
             if update_choice == "1":
                 print("Running Windows update checker...")
-                run_software_update_checker_windows()
+                run_windows_update_checker()
             elif update_choice == "2":
                 print("Running Linux update checker...")
-                run_software_update_checker_linux()
+                run_linux_update_checker()
             elif update_choice == "3":
                 break
             else:
@@ -148,11 +133,40 @@ def run_tool(choice):
         print("Running malware scanner tool...")
         run_malware_scanner_tool()
     elif choice == "7":
-        print("Running file shredder tool...")
-        run_file_shredder_tool()
+        while True:
+            print("=== File Shredder ===")
+            print("1. Run File Shredder")
+            print("2. Back to Main Menu")
+            file_choice = input("Choose an option: ")
+
+            if file_choice == "1":
+                print("Running file shredder tool...")
+                run_file_shredder()
+                break
+            elif file_choice == "2":
+                break
+            else:
+                print("Invalid choice. Please try again.")
     elif choice == "8":
-        print("Running event log viewer tool...")
-        run_event_log_viewer_tool()
+        while True:
+            print("=== Event Log Viewer ===")
+            print("1. Windows Event Log Viewer")
+            print("2. Linux Event Log Viewer")
+            print("3. Back to Main Menu")
+            event_choice = input("Choose an option: ")
+
+            if event_choice == "1":
+                print("Running Windows Event Log Viewer...")
+                run_event_log_viewer_windows()
+                break
+            elif event_choice == "2":
+                print("Running Linux Event Log Viewer...")
+                run_event_log_viewer_linux()
+                break
+            elif event_choice == "3":
+                break
+            else:
+                print("Invalid choice. Please try again.")
     elif choice == "9":
         print("Running remote access tool...")
         run_remote_access_tool()
@@ -174,11 +188,12 @@ def run_tool(choice):
         print("Invalid choice. Please try again.")
 
 
-
 def main():
+    """Main function to run the program."""
     while True:
         choice = display_menu()
         run_tool(choice)
+
 
 if __name__ == "__main__":
     main()
