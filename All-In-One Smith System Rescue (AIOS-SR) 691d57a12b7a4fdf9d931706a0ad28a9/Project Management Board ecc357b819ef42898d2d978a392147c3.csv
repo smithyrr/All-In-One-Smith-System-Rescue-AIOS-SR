@@ -1,4 +1,6 @@
-﻿Name,Assign,Date,Phase,Status,Status 1
-Establish Name,,,Phase0 - Establish Name,Done,Done
-"PhaseGUI - Create a basic GUI For Testing ",R.Smith,"May 16, 2023",PHASEGUI - Basic GUI,Not started,Not started
-PhaseGUI-0.1,R.Smith,"May 16, 2023",PhaseGUI0.1-Visuals Of GUI,Not started,Not started
+﻿Name,Assign,Checkbox,Date,Phase,Status
+Establish Name,R.Smith,Yes,"May 17, 2023",Phase0 - Establish Name,Done
+Dependencies(requirements.txt.),R.Smith,Yes,"May 17, 2023",,In progress
+"PhaseGUI - Create a basic GUI For Testing ",R.Smith,No,"May 16, 2023",PHASEGUI - Basic GUI,Not started
+PhaseGUI-0.1,R.Smith,No,"May 16, 2023",PhaseGUI0.1-Visuals Of GUI,Not started
+GRUB Boot Tools,Tom Deangelis,No,"May 17, 2023 → May 24, 2023",Phase0.1 Setup Enviroment,In progress

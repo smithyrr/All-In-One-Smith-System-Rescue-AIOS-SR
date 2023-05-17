@@ -14,13 +14,15 @@
 
 [Project Structure](All-In-One%20Smith%20System%20Rescue%20(AIOS-SR)%20691d57a12b7a4fdf9d931706a0ad28a9/Project%20Structure%20a8e1df2612be45bd932a07643268bb12.md)
 
+[Research](All-In-One%20Smith%20System%20Rescue%20(AIOS-SR)%20691d57a12b7a4fdf9d931706a0ad28a9/Research%208e7313ee22f14a839cfd74afb9976e94.md)
+
+[Team](All-In-One%20Smith%20System%20Rescue%20(AIOS-SR)%20691d57a12b7a4fdf9d931706a0ad28a9/Team%20adfbc06e7ee84e9bb35b185d5a7071f8.md)
+
 ## ****License****
 
 ---
 
 Distributed under the MIT License. See **`LICENSE`** for more information.
-
-https://dented-cement-850.notion.site/691d57a12b7a4fdf9d931706a0ad28a9?v=3c32f29ceb5c4da69d1ac925e54cb528 - Notion
 
 ## Git Repo
 
