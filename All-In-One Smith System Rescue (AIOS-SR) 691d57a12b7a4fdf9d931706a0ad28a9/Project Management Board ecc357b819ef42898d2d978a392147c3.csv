@@ -1,0 +1,4 @@
+﻿Name,Assign,Date,Phase,Status,Status 1
+Establish Name,,,Phase0 - Establish Name,Done,Done
+"PhaseGUI - Create a basic GUI For Testing ",R.Smith,"May 16, 2023",PHASEGUI - Basic GUI,Not started,Not started
+PhaseGUI-0.1,R.Smith,"May 16, 2023",PhaseGUI0.1-Visuals Of GUI,Not started,Not started
