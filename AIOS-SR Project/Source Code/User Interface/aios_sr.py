@@ -1,23 +1,77 @@
 import sys
 import subprocess
-sys.path.append("/mnt/d/AIOS-SR/AIOS-SR Project")
-
-from Tools.Recovery_Tools.system_recovery_tool import run_system_recovery_tool
-from Tools.Diagnostic_Tools.diagnostics_tool import run_diagnostics_tool
-from Tools.Tool_Scripts.parted_tool import run_parted_tool
-from Tools.Tool_Scripts.gparted_tool import run_gparted_tool
+import os
 
 
-# Placeholder functions for the new features
+# Get the absolute path of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+
+# Add the project directory to the module search path
+project_dir = os.path.join(script_dir, "Tools")
+sys.path.append(project_dir)
+
+# Check the operating system
+if sys.platform.startswith("linux"):
+    sys.path.append("/mnt/d/AIOS-SR/AIOS-SR Project")
+elif sys.platform.startswith("win"):
+    sys.path.append("D:\\AIOS-SR\\AIOS-SR Project")
+
+from import_tools import *
+
+# Removed placeholder run_testdisk_tool and run_photorec_tool
+
+def display_data_recovery_menu():
+    print("=== Data Recovery ===")
+    print("1. TestDisk")
+    print("2. PhotoRec")
+    print("3. Back to Main Menu")
+
+    choice = input("Choose an option: ")
+    return choice
+
 def run_data_recovery_tool():
-    print("Running Data Recovery Tool...")
-    print("=============================")
-    # Placeholder logic for data recovery tool
+    while True:
+        choice = display_data_recovery_menu()
+
+        if choice == "1":
+            run_testdisk_tool()
+        elif choice == "2":
+            run_photorec_tool()
+        elif choice == "3":
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+
+def display_system_monitoring_menu():
+    print("\n=== System Monitoring ===")
+    print("1. Monitor CPU Usage")
+    print("2. Monitor Memory Usage")
+    print("3. Monitor Disk Usage")
+    print("4. Monitor Network Statistics")
+    print("5. Back to Main Menu")
+
+    choice = input("Choose an option: ")
+    return choice
+
 
 def run_system_monitoring_tool():
-    print("Running System Monitoring Tool...")
-    print("================================")
-    # Placeholder logic for system monitoring tool
+    while True:
+        choice = display_system_monitoring_menu()
+
+        if choice == "1":
+            monitor_cpu_usage()
+        elif choice == "2":
+            monitor_memory_usage()
+        elif choice == "3":
+            monitor_disk_usage()
+        elif choice == "4":
+            monitor_network_stats()
+        elif choice == "5":
+            break
+        else:
+            print("Invalid choice. Please try again.")
 
 def run_software_update_tool():
     print("Running Software Update Checker...")
@@ -69,11 +123,21 @@ def run_user_authentication_tool():
     print("===============================")
     # Placeholder logic for user authentication tool
 
+def run_system_restore_tool():
+    print("Running System Restore Tool...")
+    print("==============================")
+    Tools.Tool_Scripts.system_restore_tool.run_system_restore_tool()
+
+def run_backup_restore_tool():
+    print("Running Backup and Restore Tool...")
+    print("===============================")
+    # Placeholder logic for backup and restore tool
+
 def display_system_recovery_menu():
     print("=== System Recovery ===")
     print("1. GParted")
-    print("2. Parted")
-    print("3. Other System Recovery Tool")
+    print("2. System Restore Tool")
+    print("3. Backup and Restore Tool")
     print("4. Back to Main Menu")
 
     choice = input("Choose an option: ")
@@ -86,21 +150,23 @@ def run_system_recovery_tool():
         if choice == "1":
             run_gparted_tool()  # Call the function to run the GParted tool
         elif choice == "2":
-            run_parted_tool()  # Call the function to run the Parted tool
+            run_system_restore_tool()  # Call the function to run the System Restore tool
         elif choice == "3":
-            print("Running other system recovery tool...")
-            # Placeholder logic for running other system recovery tool
+            run_backup_restore_tool()  # Call the function to run the Backup and Restore tool
         elif choice == "4":
             break
         else:
             print("Invalid choice. Please try again.")
 
 def display_menu():
+    print("=== Tools ===")
     print("1. System Recovery")
     print("2. Diagnostics")
     print("3. Data Recovery")
     print("4. System Monitoring")
     print("5. Software Update Checker")
+
+    print("\n=== Utilities ===")
     print("6. Performance Optimization")
     print("7. Malware Scanner")
     print("8. File Shredder")
@@ -110,8 +176,8 @@ def display_menu():
     print("12. Scheduled Tasks")
     print("13. Log and History Management")
     print("14. User Authentication")
-    print("15. Exit")
 
+    print("\n15. Exit")
     choice = input("Choose an option: ")
     return choice
 

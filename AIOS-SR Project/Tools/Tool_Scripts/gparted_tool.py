@@ -2,9 +2,6 @@ import sys
 import subprocess
 sys.path.append("/mnt/d/AIOS-SR/AIOS-SR Project")
 
-from Tools.Recovery_Tools.system_recovery_tool import run_system_recovery_tool
-from Tools.Diagnostic_Tools.diagnostics_tool import run_diagnostics_tool
-from Tools.Tool_Scripts.parted_tool import run_parted_tool
 
 
 # Placeholder functions for the new features
