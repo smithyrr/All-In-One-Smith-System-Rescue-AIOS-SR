@@ -1,4 +1,7 @@
 # All-In-One Smith System Rescue (AIOS-SR)
+NotionLink - https://dented-cement-850.notion.site/691d57a12b7a4fdf9d931706a0ad28a9?v=3c32f29ceb5c4da69d1ac925e54cb528
+
+
 
 ---
 
